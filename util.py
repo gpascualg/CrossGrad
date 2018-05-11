@@ -27,6 +27,9 @@ def wh_dims(data_format):
         return (2, 3)
     return (1, 2)
 
+def channel_axis(f, data_format, *args, **kwargs):
+    return f(*args, axis=channel_dim(data_format), **kwargs)
+
 def _shape(shape, dim):
     if isinstance(dim, (list, tuple)):
         return shape[dim[0]:dim[1]+1]
